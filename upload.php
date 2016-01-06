@@ -50,14 +50,14 @@ if(!empty($_POST["title"])){
 	}
 	
 	//File must be a ZIP
-	if($_FILES['file']['type']!='application/x-zip-compressed'){
+	if(strtolower(substr($_FILES['file']['name'], -4))!='.zip'){
 		errorbox('You must upload a file of type ZIP.');
 		include 'footer.php';
 		exit(0);
 	}
 	
 	//Image must be a PNG
-	if($_FILES['screenshot']['type']!='image/png'){
+	if(strtolower(substr($_FILES['screenshot']['name'], -4))!='.png'){
 		errorbox('You must upload a screenshot of type PNG.');
 		include 'footer.php';
 		exit(0);
@@ -90,6 +90,13 @@ if(!empty($_POST["title"])){
 				$stmt->execute(array($last_id, htmlspecialchars($tag)));
 			}
 		}
+		
+		//Increment upload count
+		$stmt = $db->prepare("
+			UPDATE cl_user
+			SET uploads = uploads+1
+			WHERE id = ?");
+		$stmt->execute(array($_SESSION['uid']));
 		
 		//End
 		$db->commit();

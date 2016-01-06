@@ -153,9 +153,14 @@ if(!empty($_GET["action"])){
 					DELETE FROM cl_file
 					WHERE id = ?");
 				$stmt->execute(array($file_get['id']));
+				$stmt = $db->prepare("
+					UPDATE cl_user
+					SET uploads = uploads-1
+					WHERE id = ?");
+				$stmt->execute(array($file_get['author']));
 				
-				unlink('/data/' . $file_get['id'] . ' ' . $file_get['name'] . '.zip');
-				unlink('/data/' . $file_get['id'] . '.png');
+				unlink('data/' . $file_get['id'] . ' ' . $file_get['name'] . '.zip');
+				unlink('data/' . $file_get['id'] . '.png');
 				successbox('File deleted.');
 				include 'footer.php';
 				exit(0);
