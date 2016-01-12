@@ -162,6 +162,7 @@ catch(PDOException $ex){
 		<ul id="admin-menu" class="dropdown-content">
 			<li><a href="admin.php">Control Panel</a></li>
 			<li><a href="members.php">Members</a></li>
+			<li><a href="comments.php">Comments</a></li>
 		</ul>
 		<ul id="user-menu" class="dropdown-content">
 			<li><a href="browse.php?author=<?php echo $user_name ?>">Uploads</a></li>
