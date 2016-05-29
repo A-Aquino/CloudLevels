@@ -146,22 +146,7 @@ catch(PDOException $ex){
 <?php
 if(!empty($result1)){
 	foreach($result1 as $file){
-		$is_featured='';
-		if($file['featured']==1)
-			$is_featured="<i class=\"tiny material-icons\">grade</i> ";
-		echo "
-					<div class=\"col s3\">
-						<div class=\"card hoverable\">
-							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
-								<p class=\"card-title\" style=\"white-space:nowrap;\">" . $is_featured . $file['name'] . "</p>
-								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 12vw; width: 12vw; background-position: center; margin: 0 auto;\"></div><br>
-								<p>By " . $file['username'] . "</p>
-								<p>" . $file['date'] . "</p>
-								<p><i class=\"tiny material-icons\">system_update_alt</i> " . $file['downloads'] . " <i class=\"tiny material-icons\">thumb_up</i> " . $file['likes'] . "</p>
-							</a>
-						</div>
-					</div>
-";
+		filebox($file);
 	}
 }
 ?>
@@ -180,22 +165,7 @@ if(!empty($result1)){
 <?php
 if(!empty($result2)){
 	foreach($result2 as $file){
-		$is_featured='';
-		if($file['featured']==1)
-			$is_featured="<i class=\"tiny material-icons\">grade</i> ";
-		echo "
-					<div class=\"col s3\">
-						<div class=\"card hoverable\">
-							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
-								<p class=\"card-title\" style=\"white-space:nowrap;\">" . $is_featured . $file['name'] . "</p>
-								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 12vw; width: 12vw; background-position: center; margin: 0 auto;\"></div><br>
-								<p>By " . $file['username'] . "</p>
-								<p>" . $file['date'] . "</p>
-								<p><i class=\"tiny material-icons\">system_update_alt</i> " . $file['downloads'] . " <i class=\"tiny material-icons\">thumb_up</i> " . $file['likes'] . "</p>
-							</a>
-						</div>
-					</div>
-";
+		filebox($file);
 	}
 }
 ?>
@@ -214,22 +184,7 @@ if(!empty($result2)){
 <?php
 if(!empty($result3)){
 	foreach($result3 as $file){
-		$is_featured='';
-		if($file['featured']==1)
-			$is_featured="<i class=\"tiny material-icons\">grade</i> ";
-		echo "
-					<div class=\"col s3\">
-						<div class=\"card hoverable\">
-							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
-								<p class=\"card-title\" style=\"white-space:nowrap;\">" . $is_featured . $file['name'] . "</p>
-								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 12vw; width: 12vw; background-position: center; margin: 0 auto;\"></div><br>
-								<p>By " . $file['username'] . "</p>
-								<p>" . $file['date'] . "</p>
-								<p><i class=\"tiny material-icons\">system_update_alt</i> " . $file['downloads'] . " <i class=\"tiny material-icons\">thumb_up</i> " . $file['likes'] . "</p>
-							</a>
-						</div>
-					</div>
-";
+		filebox($file);
 	}
 }
 ?>

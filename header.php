@@ -29,12 +29,38 @@ if(!file_exists('configuration.php')){
 include 'configuration.php';
 
 //Global functions go here
+
+//Red error box
 function errorbox($string){
 	echo '<br><div class="container"><div class="card hoverable red"><div class="card-content white-text"><p>ERROR: ' . $string . '</p></div></div></div>';
 }
+
+//Green success box
 function successbox($string){
 	echo '<br><div class="container"><div class="card hoverable green"><div class="card-content white-text"><p>SUCCESS: ' . $string . '</p></div></div></div>';
 }
+
+//File preview box
+function filebox($file){
+		$is_featured='';
+		if($file['featured']==1)
+			$is_featured="<i class=\"tiny material-icons\">grade</i> ";
+		echo "
+					<div class=\"col s3\">
+						<div class=\"card hoverable\">
+							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
+								<p class=\"card-title\" style=\"white-space:nowrap;\">" . $is_featured . $file['name'] . "</p>
+								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 0; padding-bottom: 70%; width: 70%; background-position: center; margin: 0 auto;\"></div><br>
+								<p>By " . $file['username'] . "</p>
+								<p>" . $file['date'] . "</p>
+								<p><i class=\"tiny material-icons\">system_update_alt</i> " . $file['downloads'] . " <i class=\"tiny material-icons\">thumb_up</i> " . $file['likes'] . "</p>
+							</a>
+						</div>
+					</div>
+";
+}
+
+//Pagination
 function pagination($count, $per_page, $theme){
 	/*
 		count: Number of items total
@@ -65,6 +91,8 @@ function pagination($count, $per_page, $theme){
 	}
 	echo '<li class="waves-effect"><a href="' . $new_url . 'page=' . $page_count . '" class="' . $theme . '-text">Last</a></li></ul></div>';
 }
+
+//SQL modifier for pagination
 function page_sql_calc($per_page){
 	$page=1;
 	if(!empty($_GET["page"]))
