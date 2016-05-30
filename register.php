@@ -39,6 +39,14 @@ if(!empty($_POST["username"])){
 		errorbox($reg_question . ' Hit the back button and try again.');
 		
 	}
+	
+	//Check password confirmation
+	else if($_POST["password"]!=$_POST["password_confirm"]){
+		
+		errorbox('Your passwords do not match. Hit the back button and try again.');
+		
+	}
+	
 	else{
 		
 		//Create account
