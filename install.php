@@ -160,8 +160,8 @@ $supported_db_types = PDO::getAvailableDrivers();
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 		<title>CloudLevels Installer</title>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	<body>
 		<div class="container">
@@ -189,21 +189,21 @@ $supported_db_types = PDO::getAvailableDrivers();
 				<span class="col s12 card-title light-blue white-text center" style="font-size: 200%;">Install</span>
 				<form action="install.php" method="post" class="col s6 offset-s3">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">account_circle</i>
+						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="username" name="username" type="text" class="validate" required>
 						<label for="username">User Name</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password" name="password" type="password" class="validate" required>
 						<label for="password">Password</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password-confirm" name="password_confirm" type="password" class="validate" required>
 						<label for="password-confirm">Confirm Password</label>
 					</div>
-					<i class="material-icons small col s1">settings_input_component</i> 
+					<i class="fa fa-database small col s1" aria-hidden="true"></i> 
 					<div class="input-field col s11">
 						<select id="db_type" name="db_type">
 							<?php 
@@ -215,22 +215,22 @@ $supported_db_types = PDO::getAvailableDrivers();
 						<label for="db_type">Database Type</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">settings_input_component</i>
+						<i class="fa fa-database prefix" aria-hidden="true"></i>
 						<input id="db-hostname" name="db_hostname" type="text" class="validate" required>
 						<label for="db-hostname">Database Hostname</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">settings_input_component</i>
+						<i class="fa fa-database prefix" aria-hidden="true"></i>
 						<input id="db-username" name="db_username" type="text" class="validate" required>
 						<label for="db-username">Database Username</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">settings_input_component</i>
+						<i class="fa fa-database prefix" aria-hidden="true"></i>
 						<input id="db-password" name="db_password" type="password" class="validate" required>
 						<label for="db-password">Database Password</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">settings_input_component</i>
+						<i class="fa fa-database prefix" aria-hidden="true"></i>
 						<input id="db-database" name="db_database" type="text" class="validate" required>
 						<label for="db-database">Database Name</label>
 					</div>
@@ -238,8 +238,8 @@ $supported_db_types = PDO::getAvailableDrivers();
 				</form><div class="row"></div>
 			</div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 		<script>$(document).ready(function() {$('select').material_select();$("form").submit(function(){$("button").attr("disabled", true);return true;});});</script>
 	</body>
 </html>

@@ -208,7 +208,7 @@ if(!empty($result3)){
 				<div class=\"row\">
 					<div class=\"card hoverable col s2 offset-s1 center\">
 						<div class=\"card-content\">
-							<p><i class=\"large material-icons\">account_circle</i> 
+							<p><i class=\"large fa fa-user\" aria-hidden=\"true\"></i> 
 							<p><a href=\"browse.php?author=" . $comment['username'] . "\">" . $comment['username'] . "</a></p>
 						</div>
 					</div>
@@ -235,7 +235,7 @@ if($user_type==0||$user_type==2){ ?>
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">New Comment</span>
 				<form action="index.php" method="post" class="col s6 offset-s3">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">comment</i>
+						<i class="fa fa-comment prefix" aria-hidden="true"></i>
 						<textarea id="comment" name="comment" class="materialize-textarea" required></textarea>
 						<label for="comment">Comment</label>
 					</div>

@@ -106,7 +106,7 @@ catch(PDOException $ex){
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Filters</span>
 				<form action="browse.php" method="get">
 					<div class="input-field col s6">
-						<i class="material-icons prefix">web</i>
+						<i class="fa fa-commenting-o prefix" aria-hidden="true"></i>
 						<input id="title" name="title" type="text" value="<?php if(!empty($_GET["title"])){echo $_GET["title"];} ?>" class="validate">
 						<label for="title">Title</label>
 					</div>
@@ -127,7 +127,7 @@ catch(PDOException $ex){
 						<label for="tags">Tags</label>
 					</div>
 					<div class="input-field col s6">
-						<i class="material-icons prefix">account_circle</i>
+						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="author" name="author" type="text" value="<?php if(!empty($_GET["author"])){echo $_GET["author"];} ?>" class="validate">
 						<label for="author">Author</label>
 					</div>

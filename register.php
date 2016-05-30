@@ -88,22 +88,22 @@ else{
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Register</span>
 				<form action="register.php" method="post" class="col s6 offset-s3">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">account_circle</i>
+						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="username" name="username" type="text" class="validate" required>
 						<label for="username">User Name</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password" name="password" type="password" class="validate" required>
 						<label for="password">Password</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password-confirm" name="password_confirm" type="password" class="validate" required>
 						<label for="password-confirm">Confirm Password</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">lock</i>
+						<i class="fa fa-lock prefix" aria-hidden="true"></i>
 						<input id="reg-question" name="reg_question" type="text" class="validate" required>
 						<label for="reg-question"><?php echo $reg_question ?></label>
 					</div>

@@ -75,12 +75,12 @@ else{
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Log In</span>
 				<form action="login.php" method="post" class="col s6 offset-s3">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">account_circle</i>
+						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="username" name="username" type="text" class="validate" required>
 						<label for="username">User Name</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password" name="password" type="password" class="validate" required>
 						<label for="password">Password</label>
 					</div>

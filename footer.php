@@ -22,11 +22,11 @@
 ?>
 		<br>
 		<div class="footer-copyright center">
-			Powered by <a class="black-text" href="https://github.com/A-Aquino/CloudLevels"><i class="material-icons tiny">cloud</i> CloudLevels</a>
+			Powered by <a class="black-text" href="https://github.com/A-Aquino/CloudLevels"><i class="fa fa-cloud" aria-hidden="true"></i> CloudLevels</a>
 		</div>
 		<br>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 		<script>$(document).ready(function() {$('select').material_select();$("form").submit(function(){$("button").attr("disabled", true);return true;});});</script>
 	</body>
 </html>

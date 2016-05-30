@@ -76,31 +76,31 @@ else{
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Administrator Control Panel</span>
 				<form action="admin.php" method="post" class="col s6 offset-s3">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">web</i>
+						<i class="fa fa-commenting-o prefix" aria-hidden="true"></i>
 						<input id="name" name="name" type="text" value="<?php echo $site_name ?>" class="validate" required>
 						<label for="name">Site Name</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">comment</i>
+						<i class="fa fa-comment prefix" aria-hidden="true"></i>
 						<textarea id="description" name="description" class="materialize-textarea" required><?php echo $site_desc ?></textarea>
 						<label for="description">Site Description</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">file_download</i>
+						<i class="fa fa-download prefix" aria-hidden="true"></i>
 						<input id="download" name="download" type="url" value="<?php echo $game_url ?>" class="validate" required>
 						<label for="download">Game Download Link</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">folder</i>
+						<i class="fa fa-folder prefix" aria-hidden="true"></i>
 						<input id="file-size" name="file_size" type="number" value="<?php echo $file_size_limit ?>" class="validate" required>
 						<label for="file-size">Max File Size Limit (Bytes)</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">cloud</i>
+						<i class="fa fa-cloud prefix" aria-hidden="true"></i>
 						<textarea id="tag-list" name="tag_list" class="materialize-textarea" required><?php echo $tags ?></textarea>
 						<label for="tag-list">Tags</label>
 					</div>
-					<i class="material-icons small col s1">color_lens</i> 
+					<i class="fa fa-paint-brush small col s1" aria-hidden="true"></i> 
 					<div class="input-field col s11">
 						<select id="theme" name="theme">
 							<option value="light-blue"<?php if($theme=='light-blue') echo ' selected'; ?>>Light Blue</option>
@@ -125,12 +125,12 @@ else{
 						<label for="theme">Theme</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">lock</i>
+						<i class="fa fa-lock prefix" aria-hidden="true"></i>
 						<input id="reg-question" name="reg_question" type="text" value="<?php echo $reg_question ?>" class="validate" required>
 						<label for="reg-question">Registration Question</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="reg-answer" name="reg_answer" type="text" value="<?php echo $reg_answer ?>" class="validate" required>
 						<label for="reg-answer">Answer to Registration Question</label>
 					</div>

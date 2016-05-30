@@ -44,7 +44,7 @@ function successbox($string){
 function filebox($file){
 		$is_featured='';
 		if($file['featured']==1)
-			$is_featured="<i class=\"tiny material-icons\">grade</i> ";
+			$is_featured="<i class=\"tiny fa fa-star\" aria-hidden=\"true\"></i> ";
 		echo "
 					<div class=\"col s3\">
 						<div class=\"card hoverable\">
@@ -53,7 +53,7 @@ function filebox($file){
 								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 0; padding-bottom: 70%; width: 70%; background-position: center; margin: 0 auto;\"></div><br>
 								<p>By " . $file['username'] . "</p>
 								<p>" . $file['date'] . "</p>
-								<p><i class=\"tiny material-icons\">system_update_alt</i> " . $file['downloads'] . " <i class=\"tiny material-icons\">thumb_up</i> " . $file['likes'] . "</p>
+								<p><i class=\"tiny fa fa-download\" aria-hidden=\"true\"></i> " . $file['downloads'] . " <i class=\"tiny fa fa-thumbs-up\" aria-hidden=\"true\"></i> " . $file['likes'] . "</p>
 							</a>
 						</div>
 					</div>
@@ -165,8 +165,8 @@ catch(PDOException $ex){
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 		<title><?php echo $site_name ?> - <?php echo $page_title ?></title>
 		<link rel="shortcut icon" href="favicon.ico">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	<body>
 		<nav class="<?php echo $theme ?> lighten-1 z-depth-1">
@@ -180,9 +180,9 @@ catch(PDOException $ex){
 <?php } else{?>
 					<li><a href="upload.php">Upload</a></li>
 <?php if($user_type==2){ ?>
-					<li><a class="dropdown-button" data-activates="admin-menu" data-beloworigin="true">Administrator <span class="material-icons">arrow_drop_down</span></a></li>
+					<li><a class="dropdown-button" data-activates="admin-menu" data-beloworigin="true">Administrator <span class="fa fa-caret-down" aria-hidden="true"></span></a></li>
 <?php } ?>
-					<li><a class="dropdown-button" data-activates="user-menu" data-beloworigin="true"><?php echo $user_name ?> <span class="material-icons">arrow_drop_down</span></a></li>
+					<li><a class="dropdown-button" data-activates="user-menu" data-beloworigin="true"><?php echo $user_name ?> <span class="fa fa-caret-down" aria-hidden="true"></span></a></li>
 <?php } ?>
 				</ul>
 			</div>

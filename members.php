@@ -99,7 +99,7 @@ catch(PDOException $ex){
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Filters</span>
 				<form action="members.php" method="get">
 					<div class="input-field col s6">
-						<i class="material-icons prefix">account_circle</i>
+						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="username" name="username" type="text" value="<?php if(!empty($_GET["username"])){echo $_GET["username"];} ?>" class="validate">
 						<label for="username">Username</label>
 					</div>

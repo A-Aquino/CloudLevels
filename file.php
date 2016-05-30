@@ -251,7 +251,7 @@ catch(PDOException $ex){
 		<br>
 		<div class="container">
 			<div class="row card hoverable">
-				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;"><?php if($file_get['featured']==1){ echo '<i class="material-icons">grade</i> '; } echo $file_get['name']; ?></span>
+				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;"><?php if($file_get['featured']==1){ echo '<i class="fa fa-star" aria-hidden="true"></i> '; } echo $file_get['name']; ?></span>
 				<div class="row"></div>
 				<div class="row">
 					<div class="col s5 offset-s1">
@@ -264,7 +264,7 @@ catch(PDOException $ex){
 					<div class="col s5">
 						<p>By <a href="browse.php?author=<?php echo $file_author ?>"><?php echo $file_author ?></a><?php if($user_type==2){ echo ' <span class="green-text">[' . $file_get['ip'] . ']</span>'; } ?></p>
 						<p><?php echo $file_get['date'] ?></p>
-						<p><i class="tiny material-icons">system_update_alt</i> <?php echo $file_get['downloads'] ?> <i class="tiny material-icons">thumb_up</i> <?php echo $file_get['likes'] ?></p>
+						<p><i class="tiny fa fa-download" aria-hidden="true"></i> <?php echo $file_get['downloads'] ?> <i class="tiny fa fa-thumbs-up" aria-hidden="true"></i> <?php echo $file_get['likes'] ?></p>
 						<p><?php echo $file_get['description'] ?></p>
 						<p><?php 
 foreach($result as $tag){
@@ -273,7 +273,7 @@ foreach($result as $tag){
 						?></p>
 						<a href="download.php?id=<?php echo $file_get['id'] ?>" class="btn waves-effect waves-light <?php echo $theme ?>">Download</a>
 <?php if($user_type==0||$user_type==2){ ?>
-						<a href="file.php?id=<?php echo $file_get['id'] ?>&action=like" class="btn waves-effect waves-light <?php if($file_liked){ echo 'red'; } else { echo $theme; } ?>"><i class="tiny material-icons"><?php if($file_liked) echo 'thumb_down'; else echo 'thumb_up'; ?></i></a>
+						<a href="file.php?id=<?php echo $file_get['id'] ?>&action=like" class="btn waves-effect waves-light <?php if($file_liked){ echo 'red'; } else { echo $theme; } ?>"><i class="tiny fa fa-thumbs-<?php if($file_liked) echo 'down'; else echo 'up'; ?>" aria-hidden="true"></i></a>
 <?php } ?>
 					</div>
 				</div>
@@ -293,7 +293,7 @@ foreach($result as $tag){
 				<div class=\"row\">
 					<div class=\"card hoverable col s2 offset-s1 center\">
 						<div class=\"card-content\">
-							<p><i class=\"large material-icons\">account_circle</i> 
+							<p><i class=\"large fa fa-user\" aria-hidden=\"true\"></i> 
 							<p><a href=\"browse.php?author=" . $comment['username'] . "\">" . $comment['username'] . "</a></p>
 						</div>
 					</div>
@@ -320,7 +320,7 @@ if($user_type==0||$user_type==2){ ?>
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">New Comment</span>
 				<form action="file.php?id=<?php echo $file_get['id'] ?>" method="post" class="col s6 offset-s3">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">comment</i>
+						<i class="fa fa-comment prefix" aria-hidden="true"></i>
 						<textarea id="comment" name="comment" class="materialize-textarea" required></textarea>
 						<label for="comment">Comment</label>
 					</div>

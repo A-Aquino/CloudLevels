@@ -84,17 +84,17 @@ if(!empty($_POST["password_old"])){
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Change Password</span>
 				<form action="settings.php" method="post" class="col s6 offset-s3">
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password-old" name="password_old" type="password" class="validate" required>
 						<label for="password-old">Old Password</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password-new" name="password_new" type="password" class="validate" required>
 						<label for="password-new">New Password</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">vpn_key</i>
+						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password-confirm" name="password_confirm" type="password" class="validate" required>
 						<label for="password-confirm">Confirm New Password</label>
 					</div>

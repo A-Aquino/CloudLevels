@@ -80,7 +80,7 @@ catch(PDOException $ex){
 				<div class=\"row\">
 					<div class=\"card hoverable col s2 offset-s1 center\">
 						<div class=\"card-content\">
-							<p><i class=\"large material-icons\">account_circle</i> 
+							<p><i class=\"large fa fa-user\" aria-hidden=\"true\"></i> 
 							<p><a href=\"browse.php?author=" . $comment['username'] . "\">" . $comment['username'] . "</a></p>
 						</div>
 					</div>

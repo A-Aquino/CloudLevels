@@ -149,16 +149,16 @@ else{
 						</div>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">web</i>
+						<i class="fa fa-commenting-o prefix" aria-hidden="true"></i>
 						<input id="title" name="title" type="text" class="validate" required>
 						<label for="title">Title</label>
 					</div>
 					<div class="input-field col s12">
-						<i class="material-icons prefix">comment</i>
+						<i class="fa fa-comment prefix" aria-hidden="true"></i>
 						<textarea id="description" name="description" class="materialize-textarea" required></textarea>
 						<label for="description">Description</label>
 					</div>
-					<i class="material-icons small col s1">cloud</i> 
+					<i class="fa fa-cloud small col s1" aria-hidden="true"></i> 
 					<div class="input-field col s11">
 						<select id="tags" name="tags[]" multiple>
 							<option value="" disabled selected>Select Tags</option>
