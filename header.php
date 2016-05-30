@@ -49,7 +49,7 @@ function filebox($file){
 					<div class=\"col s3\">
 						<div class=\"card hoverable\">
 							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
-								<p class=\"card-title\" style=\"white-space:nowrap;\">" . $is_featured . $file['name'] . "</p>
+								<p class=\"card-title\" style=\"white-space:nowrap; overflow: hidden; text-overflow: ellipsis; max-width:100%\">" . $is_featured . $file['name'] . "</p>
 								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 0; padding-bottom: 70%; width: 70%; background-position: center; margin: 0 auto;\"></div><br>
 								<p>By " . $file['username'] . "</p>
 								<p>" . $file[3] . "</p>
