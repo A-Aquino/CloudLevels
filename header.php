@@ -52,7 +52,7 @@ function filebox($file){
 								<p class=\"card-title\" style=\"white-space:nowrap;\">" . $is_featured . $file['name'] . "</p>
 								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 0; padding-bottom: 70%; width: 70%; background-position: center; margin: 0 auto;\"></div><br>
 								<p>By " . $file['username'] . "</p>
-								<p>" . $file['date'] . "</p>
+								<p>" . $file[3] . "</p>
 								<p><i class=\"tiny fa fa-download\" aria-hidden=\"true\"></i> " . $file['downloads'] . " <i class=\"tiny fa fa-thumbs-up\" aria-hidden=\"true\"></i> " . $file['likes'] . "</p>
 							</a>
 						</div>
