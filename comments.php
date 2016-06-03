@@ -75,7 +75,7 @@ catch(PDOException $ex){
 		$append='';
 		if($user_type==2) $append=' <span class="green-text">[' . $comment[4] . ']</span> <a href="comments.php?deletecomment=' . $comment[0] . '" class="red-text">[Delete]</a>';
 		$append2=' <a href="index.php">[Link]</a>';
-		if($comment['file']>0) $append2=' <a href="file.php?id=' . $comment[0] . '">[Link]</a>';
+		if($comment['file']>0) $append2=' <a href="file.php?id=' . $comment['file'] . '">[Link]</a>';
 		echo "
 				<div class=\"row\">
 					<div class=\"card hoverable col s2 offset-s1 center\">
