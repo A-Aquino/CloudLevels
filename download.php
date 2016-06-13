@@ -43,7 +43,7 @@ if(!empty($_GET["id"])){
 	catch(PDOException $ex){
 		errorbox('Something happened.');
 	}
-	header("Location:/data/" . $_GET["id"] . " " . $result[0]['name'] . ".zip");
+	header("Location:/data/" . $_GET["id"] . " " . rawurlencode($result[0]['name']) . ".zip");
 }
 
 //Footer
