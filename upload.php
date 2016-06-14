@@ -112,7 +112,7 @@ if(!empty($_POST["title"])){
 	}
 	
 	//Actually upload the files
-	move_uploaded_file($_FILES["file"]["tmp_name"], "data/" . $last_id . " " . rawurlencode(htmlspecialchars($_POST["title"])) . ".zip");
+	move_uploaded_file($_FILES["file"]["tmp_name"], "data/" . $last_id . ".zip");
 	move_uploaded_file($_FILES["screenshot"]["tmp_name"], "data/" . $last_id . ".png");
 	
 	//Success!
