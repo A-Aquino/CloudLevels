@@ -159,7 +159,7 @@ if(!empty($_GET["action"])){
 					WHERE id = ?");
 				$stmt->execute(array($file_get['author']));
 				
-				unlink('data/' . $file_get['id'] . ' ' . $file_get['name'] . '.zip');
+				unlink('data/' . $file_get['id'] . ' ' . rawurlencode($file_get['name']) . '.zip');
 				unlink('data/' . $file_get['id'] . '.png');
 				successbox('File deleted.');
 				include 'footer.php';
