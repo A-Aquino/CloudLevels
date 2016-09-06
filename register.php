@@ -66,14 +66,31 @@ if(!empty($_POST["username"])){
 				
 			}
 			else{
-			
-				date_default_timezone_set('America/New_York');
+				
+				//Check if IP address exists
 				$stmt = $db->prepare("
-					INSERT INTO cl_user(username, password, date, ip)
-					VALUES(?,?,?,?)");
-				$stmt->execute(array(htmlspecialchars($_POST["username"]), crypt($_POST["password"]), date("F j, Y"), $_SERVER['REMOTE_ADDR']));
-				successbox('Your account has been created. Please log in.');
-			
+					SELECT *
+					FROM cl_user
+					WHERE ip = ?");
+				$stmt->execute(array($_SERVER['REMOTE_ADDR']));
+				
+				//If IP address exists
+				if ($stmt->rowCount()>0){
+					
+					errorbox('You are only allowed to have one account.');
+					
+				}
+				else{
+					
+					date_default_timezone_set('America/New_York');
+					$stmt = $db->prepare("
+						INSERT INTO cl_user(username, password, date, ip)
+						VALUES(?,?,?,?)");
+					$stmt->execute(array(htmlspecialchars($_POST["username"]), crypt($_POST["password"]), date("F j, Y"), $_SERVER['REMOTE_ADDR']));
+					successbox('Your account has been created. Please log in.');
+					
+				}
+				
 			}
 			
 		}
