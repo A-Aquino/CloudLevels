@@ -156,8 +156,8 @@ catch(PDOException $ex){
 						Liked
 						</label>
 					</div>
-					<div class="switch col s12"></br></div>
 <?php } ?>
+					<div class="row"></div>
 					<button class="btn waves-effect waves-light <?php echo $theme ?> col s10 l8 offset-s1 offset-l2" type="submit">Filter</button>
 				</form><div class="row"></div>
 			</div>
