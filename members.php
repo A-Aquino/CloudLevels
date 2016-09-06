@@ -110,7 +110,7 @@ catch(PDOException $ex){
 						</select>
 						<label for="sort">Sort</label>
 					</div>
-					<button class="btn waves-effect waves-light <?php echo $theme ?> col s6 offset-s3" type="submit">Filter</button>
+					<button class="btn waves-effect waves-light <?php echo $theme ?> col s10 l8 offset-s1 offset-l2" type="submit">Filter</button>
 				</form><div class="row"></div>
 			</div>
 		</div>

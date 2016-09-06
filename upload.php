@@ -129,7 +129,7 @@ else{
 		<div class="container">
 			<div class="row card hoverable">
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Upload File</span>
-				<form action="upload.php" method="post" enctype="multipart/form-data" class="col s6 offset-s3">
+				<form action="upload.php" method="post" enctype="multipart/form-data" class="col s12 m10 l8 offset-m1 offset-l2">
 					<div class="file-field input-field">
 						<div class="btn <?php echo $theme ?>">
 							<span>File (<?php echo ($file_size_limit/1000000); ?>MB MAX)</span>

@@ -82,7 +82,7 @@ if(!empty($_POST["password_old"])){
 		<div class="container">
 			<div class="row card hoverable">
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Change Password</span>
-				<form action="settings.php" method="post" class="col s6 offset-s3">
+				<form action="settings.php" method="post" class="col s12 m10 l8 offset-m1 offset-l2">
 					<div class="input-field col s12">
 						<i class="fa fa-key prefix" aria-hidden="true"></i>
 						<input id="password-old" name="password_old" type="password" class="validate" required>

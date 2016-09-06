@@ -94,7 +94,7 @@ else{
 		<div class="container">
 			<div class="row card hoverable">
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Register</span>
-				<form action="register.php" method="post" class="col s6 offset-s3">
+				<form action="register.php" method="post" class="col s12 m10 l8 offset-m1 offset-l2">
 					<div class="input-field col s12">
 						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="username" name="username" type="text" class="validate" required>

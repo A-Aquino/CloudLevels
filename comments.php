@@ -78,13 +78,13 @@ catch(PDOException $ex){
 		if($comment['file']>0) $append2=' <a href="file.php?id=' . $comment['file'] . '">[Link]</a>';
 		echo "
 				<div class=\"row\">
-					<div class=\"card hoverable col s2 offset-s1 center\">
+					<div class=\"card hoverable col s3 m2 offset-s1 offset-m1 center\">
 						<div class=\"card-content\">
-							<p><i class=\"large fa fa-user\" aria-hidden=\"true\"></i> 
+							<p><i class=\"medium fa fa-user\" aria-hidden=\"true\"></i> 
 							<p><a href=\"browse.php?author=" . $comment['username'] . "\">" . $comment['username'] . "</a></p>
 						</div>
 					</div>
-					<div class=\"card hoverable col s7 offset-s1\">
+					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
 						<div class=\"card-content\">
 							<p>" . $comment['comment'] . "</p>
 							<br>

@@ -46,11 +46,11 @@ function filebox($file){
 		if($file['featured']==1)
 			$is_featured="<i class=\"tiny fa fa-star\" aria-hidden=\"true\"></i> ";
 		echo "
-					<div class=\"col s3\">
+					<div class=\"col s12 m6 l3\">
 						<div class=\"card hoverable\">
 							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
 								<p class=\"card-title\" style=\"white-space:nowrap; overflow: hidden; text-overflow: ellipsis; max-width:100%\">" . $is_featured . $file['name'] . "</p>
-								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 0; padding-bottom: 70%; width: 70%; background-position: center; margin: 0 auto;\"></div><br>
+								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 0; padding-bottom: 70%; width: 70%; background-position: center; background-size: auto 100%; margin: 0 auto;\"></div><br>
 								<p>By " . $file['username'] . "</p>
 								<p>" . $file[3] . "</p>
 								<p><i class=\"tiny fa fa-download\" aria-hidden=\"true\"></i> " . $file['downloads'] . " <i class=\"tiny fa fa-thumbs-up\" aria-hidden=\"true\"></i> " . $file['likes'] . "</p>
@@ -171,7 +171,7 @@ catch(PDOException $ex){
 	<body>
 		<nav class="<?php echo $theme ?> lighten-1 z-depth-1">
 			<div class="container">
-				<a href="/" style="font-size: 200%;"><?php echo $site_name ?></a>
+				<a href="/" class="hide-on-small-only" style="font-size: 200%;"><?php echo $site_name ?></a>
 				<ul class="right">
 					<li><a href="browse.php">Browse</a></li>
 <?php if(!$logged_in){ ?>

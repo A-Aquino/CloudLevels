@@ -187,7 +187,7 @@ $supported_db_types = PDO::getAvailableDrivers();
 			?>
 			<div class="row card hoverable">
 				<span class="col s12 card-title light-blue white-text center" style="font-size: 200%;">Install</span>
-				<form action="install.php" method="post" class="col s6 offset-s3">
+				<form action="install.php" method="post" class="col s12 m10 l8 offset-m1 offset-l2">
 					<div class="input-field col s12">
 						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="username" name="username" type="text" class="validate" required>

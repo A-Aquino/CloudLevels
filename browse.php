@@ -139,7 +139,7 @@ catch(PDOException $ex){
 						</select>
 						<label for="sort">Sort</label>
 					</div>
-					<div class="switch col s2">
+					<div class="switch col s6">
 						<label>
 						All
 						<input type="checkbox" name="featured"<?php if(!empty($_GET["featured"])) echo ' checked'; ?>>
@@ -148,7 +148,7 @@ catch(PDOException $ex){
 						</label>
 					</div>
 <?php if($user_type==0||$user_type==2){ ?>
-					<div class="switch col s2">
+					<div class="switch col s6 right-align">
 						<label>
 						All
 						<input type="checkbox" name="liked"<?php if(!empty($_GET["liked"])) echo ' checked'; ?>>
@@ -156,8 +156,9 @@ catch(PDOException $ex){
 						Liked
 						</label>
 					</div>
+					<div class="switch col s12"></br></div>
 <?php } ?>
-					<button class="btn waves-effect waves-light <?php echo $theme ?> col s4<?php if($user_type==-1){ echo ' offset-s2'; } ?>" type="submit">Filter</button>
+					<button class="btn waves-effect waves-light <?php echo $theme ?> col s10 l8 offset-s1 offset-l2" type="submit">Filter</button>
 				</form><div class="row"></div>
 			</div>
 		</div>

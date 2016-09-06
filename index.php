@@ -206,13 +206,13 @@ if(!empty($result3)){
 		if($user_type==2) $append=' <span class="green-text">[' . $comment[4] . ']</span> <a href="index.php?deletecomment=' . $comment[0] . '" class="red-text">[Delete]</a>';
 		echo "
 				<div class=\"row\">
-					<div class=\"card hoverable col s2 offset-s1 center\">
+					<div class=\"card hoverable col s3 m2 offset-s1 offset-m1 center\">
 						<div class=\"card-content\">
-							<p><i class=\"large fa fa-user\" aria-hidden=\"true\"></i> 
+							<p><i class=\"medium fa fa-user\" aria-hidden=\"true\"></i> 
 							<p><a href=\"browse.php?author=" . $comment['username'] . "\">" . $comment['username'] . "</a></p>
 						</div>
 					</div>
-					<div class=\"card hoverable col s7 offset-s1\">
+					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
 						<div class=\"card-content\">
 							<p>" . $comment['comment'] . "</p>
 							<br>
@@ -233,7 +233,7 @@ if($user_type==0||$user_type==2){ ?>
 		<div class="container">
 			<div class="row card hoverable">
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">New Comment</span>
-				<form action="index.php" method="post" class="col s6 offset-s3">
+				<form action="index.php" method="post" class="col s12 m10 offset-m1 l8 offset-l2">
 					<div class="input-field col s12">
 						<i class="fa fa-comment prefix" aria-hidden="true"></i>
 						<textarea id="comment" name="comment" class="materialize-textarea" required></textarea>

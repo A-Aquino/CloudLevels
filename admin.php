@@ -74,7 +74,7 @@ else{
 		<div class="container">
 			<div class="row card hoverable">
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Administrator Control Panel</span>
-				<form action="admin.php" method="post" class="col s6 offset-s3">
+				<form action="admin.php" method="post" class="col s12 m10 l8 offset-m1 offset-l2">
 					<div class="input-field col s12">
 						<i class="fa fa-commenting-o prefix" aria-hidden="true"></i>
 						<input id="name" name="name" type="text" value="<?php echo $site_name ?>" class="validate" required>
