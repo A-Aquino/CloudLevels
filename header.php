@@ -171,7 +171,7 @@ catch(PDOException $ex){
 	<body>
 		<nav class="<?php echo $theme ?> lighten-1 z-depth-1">
 			<div class="container">
-				<a href="/" class="hide-on-small-only" style="font-size: 200%;"><?php echo $site_name ?></a>
+				<a href="index.php" style="font-size: 200%;"><?php echo $site_name ?></a>
 				<ul class="right">
 					<li><a href="browse.php">Browse</a></li>
 <?php if(!$logged_in){ ?>
@@ -179,20 +179,18 @@ catch(PDOException $ex){
 					<li><a href="register.php">Register</a></li>
 <?php } else{?>
 					<li><a href="upload.php">Upload</a></li>
-<?php if($user_type==2){ ?>
-					<li><a class="dropdown-button" data-activates="admin-menu" data-beloworigin="true">Administrator <span class="fa fa-caret-down" aria-hidden="true"></span></a></li>
-<?php } ?>
 					<li><a class="dropdown-button" data-activates="user-menu" data-beloworigin="true"><?php echo $user_name ?> <span class="fa fa-caret-down" aria-hidden="true"></span></a></li>
 <?php } ?>
 				</ul>
 			</div>
 		</nav>
-		<ul id="admin-menu" class="dropdown-content">
-			<li><a href="admin.php">Control Panel</a></li>
+		<ul id="user-menu" class="dropdown-content">
+<?php if($user_type==2){ ?>
+			<li><a href="admin.php">Admin</a></li>
 			<li><a href="members.php">Members</a></li>
 			<li><a href="comments.php">Comments</a></li>
-		</ul>
-		<ul id="user-menu" class="dropdown-content">
+			<li class="divider"></li>
+<?php } ?>
 			<li><a href="browse.php?author=<?php echo $user_name ?>">Uploads</a></li>
 			<li><a href="settings.php">Settings</a></li>
 			<li class="divider"></li>

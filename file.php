@@ -254,14 +254,14 @@ catch(PDOException $ex){
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;"><?php if($file_get['featured']==1){ echo '<i class="fa fa-star" aria-hidden="true"></i> '; } echo $file_get['name']; ?></span>
 				<div class="row"></div>
 				<div class="row">
-					<div class="col s5 offset-s1">
+					<div class="col s5 offset-s1 center-align">
 						<img class="responsive-img" src="/data/<?php echo $file_get['id'] ?>.png">
 <?php if($user_type==2){ ?>
 						<br><a href="file.php?id=<?php echo $file_get['id'] ?>&action=feature" class="btn waves-effect waves-light <?php if($file_get['featured']){ echo 'red">Un-Feature'; } else { echo 'green">Feature'; } ?></a>
 						<a href="file.php?id=<?php echo $file_get['id'] ?>&action=delete" class="btn waves-effect waves-light red">Delete</a>
 <?php } ?>
 					</div>
-					<div class="col s5">
+					<div class="col s5 center-align">
 						<p>By <a href="browse.php?author=<?php echo $file_author ?>"><?php echo $file_author ?></a><?php if($user_type==2){ echo ' <span class="green-text">[' . $file_get['ip'] . ']</span>'; } ?></p>
 						<p><?php echo $file_get['date'] ?></p>
 						<p><i class="tiny fa fa-download" aria-hidden="true"></i> <?php echo $file_get['downloads'] ?> <i class="tiny fa fa-thumbs-up" aria-hidden="true"></i> <?php echo $file_get['likes'] ?></p>
