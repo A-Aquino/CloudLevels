@@ -36,8 +36,7 @@ if($user_type!=-1&&!empty($_POST["comment"])){
 	
 	//Handle errors
 	catch(PDOException $ex){
-		errorbox('Something happened.');
-				echo $ex->getMessage();
+		errorbox('Failed to post comment.');
 		include 'footer.php';
 		exit(0);
 	}
@@ -59,7 +58,7 @@ if($user_type==2&&!empty($_GET["deletecomment"])){
 	}
 	//Handle errors
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Failed to delete comment.');
 		include 'footer.php';
 		exit(0);
 	}
@@ -122,7 +121,7 @@ try{
 
 //Handle errors
 catch(PDOException $ex){
-	errorbox('Something happened.');
+	errorbox('Failed to load file information.');
 }
 ?>
 		

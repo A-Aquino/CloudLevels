@@ -62,7 +62,7 @@ if(!empty($_POST["username"])){
 	
 	//Handle errors
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Login failed. Please try again later.');
 	}
 	
 }

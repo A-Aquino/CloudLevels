@@ -72,7 +72,7 @@ if(!empty($_POST["password_old"])){
 	
 	//Handle errors
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Failed to change password.');
 	}
 	
 }

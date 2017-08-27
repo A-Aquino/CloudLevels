@@ -42,9 +42,16 @@ if(!empty($_POST["title"])){
 		exit(0);
 	}
 	
-	//Verify file sizes
-	if(max($_FILES['file']['size'], $_FILES['screenshot']['size'])>$file_size_limit){
-		errorbox('You have exceeded the maximum file size of ' . $file_size_limit . '.');
+	//Verify file size
+	if($_FILES['file']['size']>$file_size_limit){
+		errorbox('Your file has exceeded the maximum file size of ' . $file_size_limit/1000000 . 'MB.');
+		include 'footer.php';
+		exit(0);
+	}
+	
+	//Verify image size
+	if($_FILES['screenshot']['size']>$file_size_limit){
+		errorbox('Your screenshot has exceeded the maximum file size of ' . $file_size_limit/1000000 . 'MB.');
 		include 'footer.php';
 		exit(0);
 	}

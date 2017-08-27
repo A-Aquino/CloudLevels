@@ -96,7 +96,7 @@ try{
 
 //Handle errors
 catch(PDOException $ex){
-	errorbox('Something happened.');
+	errorbox('Failed to load files.');
 }
 ?>
 		

@@ -20,7 +20,7 @@
 //CloudLevels Download File
 
 //Header + Vars:
-$page_title='Template';
+$page_title='Download';
 include 'header.php';
 
 //Get file + record in DB
@@ -41,9 +41,24 @@ if(!empty($_GET["id"])){
 		$stmt->execute(array($_GET["id"]));
 	}
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Failed to load file information.');
 	}
-	header("Location:/data/" . $_GET["id"] . ".zip");
+	
+	//File to download
+	$file_to_download = "data/" . $_GET["id"] . ".zip";
+	
+	//Download file if it exists
+	if(is_readable($file_to_download)){
+		ob_clean();
+		header('Content-Type: application/octet-stream');
+		header('Content-Disposition: attachment; filename="' . rawurlencode($result[0]["name"]) . '.zip"');
+		readfile($file_to_download);
+		exit(0);
+	}
+	
+	//File not found
+	errorbox('File is missing from server.');
+	
 }
 
 //Footer

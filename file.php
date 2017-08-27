@@ -42,7 +42,7 @@ if($user_type!=-1&&!empty($_POST["comment"])){
 	
 	//Handle errors
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Failed to post comment.');
 		include 'footer.php';
 		exit(0);
 	}
@@ -64,7 +64,7 @@ if($user_type==2&&!empty($_GET["deletecomment"])){
 	}
 	//Handle errors
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Failed to delete comment.');
 		include 'footer.php';
 		exit(0);
 	}
@@ -88,7 +88,7 @@ if($user_type!=-1){
 	}
 	//Handle errors
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Failed to check if user likes file.');
 		include 'footer.php';
 		exit(0);
 	}
@@ -190,14 +190,14 @@ if(!empty($_GET["action"])){
 			}
 			
 			else
-				errorbox('Nothing happened.');
+				errorbox('Invalid file operation.');
 		}
 		else
-			errorbox('Nothing happened.');
+			errorbox('Invalid file operation.');
 		
 	}
 	catch(PDOException $ex){
-		errorbox('Something happened.');
+		errorbox('Failed to modify file.');
 		include 'footer.php';
 		exit(0);
 	}
@@ -241,7 +241,7 @@ try{
 
 //Handle errors
 catch(PDOException $ex){
-	errorbox('Something happened.');
+	errorbox('Failed to load file information.');
 	echo $ex->getMessage();
 	include 'footer.php';
 	exit(0);
