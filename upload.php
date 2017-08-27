@@ -83,7 +83,7 @@ if(!empty($_POST["title"])){
 		$stmt = $db->prepare("
 			INSERT INTO cl_file(name, author, date, ip, description)
 			VALUES(?,?,?,?,?)");
-		$stmt->execute(array(htmlspecialchars($_POST["title"]), $_SESSION['uid'], date("F j, Y"), $_SERVER['REMOTE_ADDR'], htmlspecialchars($_POST["description"])));
+		$stmt->execute(array(htmlspecialchars($_POST["title"]), $_SESSION['uid'], date("F j, Y"), $_SERVER['REMOTE_ADDR'], nl2br(htmlspecialchars($_POST["description"]))));
 		
 		//Get file id
 		$last_id = $db->lastInsertId();

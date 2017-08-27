@@ -31,7 +31,7 @@ if($user_type!=-1&&!empty($_POST["comment"])){
 		$stmt = $db->prepare("
 			INSERT INTO cl_comment(author, file, date, ip, comment)
 			VALUES(?,?,?,?,?)");
-		$stmt->execute(array($_SESSION['uid'], 0, date("F j, Y"), $_SERVER['REMOTE_ADDR'], htmlspecialchars($_POST["comment"])));
+		$stmt->execute(array($_SESSION['uid'], 0, date("F j, Y"), $_SERVER['REMOTE_ADDR'], nl2br(htmlspecialchars($_POST["comment"]))));
 	}
 	
 	//Handle errors
@@ -213,7 +213,7 @@ if(!empty($result3)){
 					</div>
 					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
 						<div class=\"card-content\">
-							<p>" . $comment['comment'] . "</p>
+							<p style=\"word-break: break-all;\">" . $comment['comment'] . "</p>
 							<br>
 							<p>" . $comment[3] . $append . "</p>
 						</div>

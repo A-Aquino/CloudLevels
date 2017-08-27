@@ -37,7 +37,7 @@ if($user_type!=-1&&!empty($_POST["comment"])){
 		$stmt = $db->prepare("
 			INSERT INTO cl_comment(author, file, date, ip, comment)
 			VALUES(?,?,?,?,?)");
-		$stmt->execute(array($_SESSION['uid'], $file_get['id'], date("F j, Y"), $_SERVER['REMOTE_ADDR'], htmlspecialchars($_POST["comment"])));
+		$stmt->execute(array($_SESSION['uid'], $file_get['id'], date("F j, Y"), $_SERVER['REMOTE_ADDR'], nl2br(htmlspecialchars($_POST["comment"]))));
 	}
 	
 	//Handle errors
@@ -242,7 +242,6 @@ try{
 //Handle errors
 catch(PDOException $ex){
 	errorbox('Failed to load file information.');
-	echo $ex->getMessage();
 	include 'footer.php';
 	exit(0);
 }
@@ -265,7 +264,7 @@ catch(PDOException $ex){
 						<p>By <a href="browse.php?author=<?php echo $file_author ?>"><?php echo $file_author ?></a><?php if($user_type==2){ echo ' <span class="green-text">[' . $file_get['ip'] . ']</span>'; } ?></p>
 						<p><?php echo $file_get['date'] ?></p>
 						<p><i class="tiny fa fa-download" aria-hidden="true"></i> <?php echo $file_get['downloads'] ?> <i class="tiny fa fa-thumbs-up" aria-hidden="true"></i> <?php echo $file_get['likes'] ?></p>
-						<p><?php echo $file_get['description'] ?></p>
+						<p style="word-break: break-all;"><?php echo $file_get['description'] ?></p>
 						<p><?php 
 foreach($result as $tag){
 	echo '<a href="browse.php?tags[]=' . $tag['tag'] . '" class="chip">' . $tag['tag'] . '</a>';
@@ -299,7 +298,7 @@ foreach($result as $tag){
 					</div>
 					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
 						<div class=\"card-content\">
-							<p>" . $comment['comment'] . "</p>
+							<p style=\"word-break: break-all;\">" . $comment['comment'] . "</p>
 							<br>
 							<p>" . $comment[3] . $append . "</p>
 						</div>

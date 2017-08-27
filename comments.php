@@ -86,7 +86,7 @@ catch(PDOException $ex){
 					</div>
 					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
 						<div class=\"card-content\">
-							<p>" . $comment['comment'] . "</p>
+							<p style=\"word-break: break-all;\">" . $comment['comment'] . "</p>
 							<br>
 							<p>" . $comment[3] . $append . $append2 . "</p>
 						</div>

@@ -76,6 +76,8 @@ function pagination($count, $per_page, $theme){
 		$new_url=substr($new_url, 0, strpos($new_url,'page=')-1);
 	if(substr($new_url, -4)=='.php')
 		$new_url=$new_url.'?';
+	else if(substr($new_url, -1)=='/')
+		$new_url=$new_url.'index.php?';
 	else
 		$new_url=$new_url.'&';
 	$page_count=ceil($count/$per_page);
@@ -169,9 +171,8 @@ catch(PDOException $ex){
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	<body>
-		<nav class="<?php echo $theme ?> lighten-1 z-depth-1">
+		<nav class="<?php echo $theme ?> lighten-1 z-depth-1" style="overflow:hidden;">
 			<div class="container">
-				<a href="index.php" style="font-size: 200%;"><?php echo $site_name ?></a>
 				<ul class="right">
 					<li><a href="browse.php">Browse</a></li>
 <?php if(!$logged_in){ ?>
@@ -182,6 +183,7 @@ catch(PDOException $ex){
 					<li><a class="dropdown-button" data-activates="user-menu" data-beloworigin="true"><?php echo $user_name ?> <span class="fa fa-caret-down" aria-hidden="true"></span></a></li>
 <?php } ?>
 				</ul>
+				<a href="index.php" style="font-size: 200%;"><?php echo $site_name ?></a>
 			</div>
 		</nav>
 		<ul id="user-menu" class="dropdown-content">
