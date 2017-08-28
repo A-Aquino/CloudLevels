@@ -20,7 +20,7 @@
 //CloudLevels Front Page
 
 //Header + Vars:
-$page_title='Index';
+$page_title='';
 include 'header.php';
 
 //When there is comment data

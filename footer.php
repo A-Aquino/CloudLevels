@@ -25,8 +25,8 @@
 			Powered by <a class="black-text" href="https://github.com/A-Aquino/CloudLevels"><i class="fa fa-cloud" aria-hidden="true"></i> CloudLevels</a>
 		</div>
 		<br>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 		<script>$(document).ready(function() {$('select').material_select();$("form").submit(function(){$("button").attr("disabled", true);return true;});});</script>
 	</body>
 </html>

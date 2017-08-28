@@ -20,7 +20,7 @@
 //CloudLevels View All Comments
 
 //Header + Vars:
-$page_title='All Comments';
+$page_title='Comments';
 include 'header.php';
 
 //Delete comments

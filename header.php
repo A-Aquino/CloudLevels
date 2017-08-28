@@ -182,6 +182,10 @@ catch(PDOException $ex){
 	$db_error=true;
 }
 
+//Update page title
+if(!empty($page_title)) $page_title.=" - ";
+$page_title.=$site_name;
+
 //HTML Template (Continues in footer.php):
 ?>
 <!DOCTYPE html>
@@ -189,10 +193,10 @@ catch(PDOException $ex){
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-		<title><?php echo $site_name ?> - <?php echo $page_title ?></title>
+		<title><?php echo $page_title ?></title>
 		<link rel="shortcut icon" href="favicon.ico">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 	</head>
 	<body>
 		<nav class="<?php echo $theme ?> lighten-1 z-depth-1" style="overflow:hidden;">

@@ -20,7 +20,7 @@
 //CloudLevels Member Management
 
 //Header + Vars:
-$page_title='Manage Members';
+$page_title='Members';
 include 'header.php';
 
 //Admins only!
