@@ -47,11 +47,15 @@ if(!empty($_GET["id"])){
 	//File to download
 	$file_to_download = "data/" . $_GET["id"] . ".zip";
 	
+	//Name of file
+	$file_name = str_replace(array('\\','/',':','*','?','"','<','>','|','amp;'),'', $result[0]["name"]);
+	if(empty($file_name)) $file_name = 'File';
+	
 	//Download file if it exists
 	if(is_readable($file_to_download)){
 		ob_clean();
 		header('Content-Type: application/octet-stream');
-		header('Content-Disposition: attachment; filename="' . rawurlencode($result[0]["name"]) . '.zip"');
+		header('Content-Disposition: attachment; filename="' . $file_name . '.zip"');
 		readfile($file_to_download);
 		exit(0);
 	}

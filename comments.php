@@ -47,13 +47,26 @@ $comments=null;
 $num_rows=0;
 try{
 	
+	//Get requested comments
+	$where='';
+	$args=array();
+	
+	//Author
+	if(!empty($_GET["author"])){
+		$where='WHERE cl_user.username = ?';
+		array_push($args, $_GET["author"]);
+	}
+	
 	$stmt = $db->prepare("
 		SELECT SQL_CALC_FOUND_ROWS *
 		FROM cl_comment JOIN cl_user ON cl_comment.author=cl_user.id
+		" . $where . "
 		ORDER BY cl_comment.id DESC
 		" . page_sql_calc(10));
-	$stmt->execute();
+	$stmt->execute($args);
+	
 	$comments = $stmt->fetchAll();
+	
 	$num_rows = $db->query('SELECT FOUND_ROWS()')->fetchColumn();
 	
 }
@@ -67,7 +80,21 @@ catch(PDOException $ex){
 		<br>
 		<div class="container">
 			<div class="row card hoverable">
-				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">All Comments</span>
+				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Filters</span>
+				<form action="comments.php" method="get">
+					<div class="input-field col s12">
+						<i class="fa fa-user prefix" aria-hidden="true"></i>
+						<input id="author" name="author" type="text" value="<?php if(!empty($_GET["author"])){echo $_GET["author"];} ?>" class="validate">
+						<label for="author">Author</label>
+					</div>
+					<button class="btn waves-effect waves-light <?php echo $theme ?> col s10 l8 offset-s1 offset-l2" type="submit">Filter</button>
+				</form><div class="row"></div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row card hoverable">
+				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Comments</span>
 				<div class="row"></div>
 <?php
 	//Comments
