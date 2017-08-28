@@ -208,7 +208,7 @@ if(!empty($result3)){
 					<div class=\"card hoverable col s3 m2 offset-s1 offset-m1 center\">
 						<div class=\"card-content\">
 							<p><i class=\"medium fa fa-user\" aria-hidden=\"true\"></i> 
-							<p><a href=\"browse.php?author=" . $comment['username'] . "\">" . $comment['username'] . "</a></p>
+							<p>" . memberlink($comment['username'], $comment['usergroup']) . "</p>
 						</div>
 					</div>
 					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">

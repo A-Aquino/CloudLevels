@@ -40,6 +40,30 @@ function successbox($string){
 	echo '<br><div class="container"><div class="card hoverable green"><div class="card-content white-text"><p>SUCCESS: ' . $string . '</p></div></div></div>';
 }
 
+//Member colors (Materialize CSS classes)
+function membercolors($group){
+	
+	//Banned users are red
+	if($group==1) return 'red-text';
+	
+	//Admins are green
+	else if($group==2) return 'green-text';
+	
+	//Default blue text
+	else return 'blue-text';
+	
+}
+
+//Member links
+function memberlink($username, $group, $to_append = true){
+	$append = '';
+	if($to_append){
+		if($group==1) $append = '<strong>[Banned]</strong><br>';
+		else if($group==2) $append = '<strong>[Staff]</strong><br>';
+	}
+	return "<a href=\"browse.php?author=" . $username . "\" class=\"" . membercolors($group) . "\">" . $append . $username . "</a>";
+}
+
 //File preview box
 function filebox($file){
 		$is_featured='';
@@ -51,7 +75,7 @@ function filebox($file){
 							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
 								<p class=\"card-title\" style=\"white-space:nowrap; overflow: hidden; text-overflow: ellipsis; max-width:100%\">" . $is_featured . $file['name'] . "</p>
 								<br><div class=\"circle\" style=\"background: url(/data/" . $file[0] . ".png); height: 0; padding-bottom: 70%; width: 70%; background-position: center; background-size: auto 100%; margin: 0 auto;\"></div><br>
-								<p>By " . $file['username'] . "</p>
+								<p>By <span class=\"" . membercolors($file['usergroup']) . "\">" . $file['username'] . "</span></p>
 								<p>" . $file[3] . "</p>
 								<p><i class=\"tiny fa fa-download\" aria-hidden=\"true\"></i> " . $file['downloads'] . " <i class=\"tiny fa fa-thumbs-up\" aria-hidden=\"true\"></i> " . $file['likes'] . "</p>
 							</a>

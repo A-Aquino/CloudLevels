@@ -211,12 +211,12 @@ try{
 	
 	//Get author
 	$stmt = $db->prepare("
-			SELECT username
+			SELECT username, usergroup
 			FROM cl_user
 			WHERE id = ?");
 	$stmt->execute(array($file_get["author"]));
 	$result = $stmt->fetchAll();
-	$file_author=$result[0]['username'];
+	$file_author=$result[0];
 	
 	//Get tags
 	$stmt = $db->prepare("
@@ -261,7 +261,7 @@ catch(PDOException $ex){
 <?php } ?>
 					</div>
 					<div class="col s5 center-align">
-						<p>By <a href="browse.php?author=<?php echo $file_author ?>"><?php echo $file_author ?></a><?php if($user_type==2){ echo ' <span class="green-text">[' . $file_get['ip'] . ']</span>'; } ?></p>
+						<p>By <?php echo memberlink($file_author['username'], $file_author['usergroup'], false); if($user_type==2){ echo ' <span class="green-text">[' . $file_get['ip'] . ']</span>'; } ?></p>
 						<p><?php echo $file_get['date'] ?></p>
 						<p><i class="tiny fa fa-download" aria-hidden="true"></i> <?php echo $file_get['downloads'] ?> <i class="tiny fa fa-thumbs-up" aria-hidden="true"></i> <?php echo $file_get['likes'] ?></p>
 						<p style="word-break: break-all;"><?php echo $file_get['description'] ?></p>
@@ -293,7 +293,7 @@ foreach($result as $tag){
 					<div class=\"card hoverable col s3 m2 offset-s1 offset-m1 center\">
 						<div class=\"card-content\">
 							<p><i class=\"medium fa fa-user\" aria-hidden=\"true\"></i> 
-							<p><a href=\"browse.php?author=" . $comment['username'] . "\">" . $comment['username'] . "</a></p>
+							<p>" . memberlink($comment['username'], $comment['usergroup']) . "</p>
 						</div>
 					</div>
 					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">

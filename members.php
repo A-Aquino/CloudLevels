@@ -118,7 +118,7 @@ catch(PDOException $ex){
 			<div class="row card hoverable">
 				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;">Members</span>
 				<div class="row">
-					<p class="center col s12"><strong><span class="blue-text">Member</span> | <span class="green-text">Admin</span> | <span class="red-text">Banned</span></strong></p>
+					<p class="center col s12"><strong><span class="blue-text">Member</span> | <span class="green-text">Staff</span> | <span class="red-text">Banned</span></strong></p>
 					<table class="col s10 offset-s1 centered striped">
 						<thead>
 							<tr>
@@ -131,23 +131,20 @@ catch(PDOException $ex){
 						</thead>
 						<tbody><?php
 foreach($result as $user){
-	$append=' class="blue-text"';
-	$append2="<a href=\"members.php?update=1&user=" . $user['username'] . "\" class=\"red-text\">[Ban]</a> <a href=\"members.php?update=2&user=" . $user['username'] . "\" class=\"green-text\">[Promote]</a>";
+	$append="<a href=\"members.php?update=1&user=" . $user['username'] . "\" class=\"red-text\">[Ban]</a> <a href=\"members.php?update=2&user=" . $user['username'] . "\" class=\"green-text\">[Promote]</a>";
 	if($user['usergroup']==1){
-		$append=' class="red-text"';
-		$append2="<a href=\"members.php?update=0&user=" . $user['username'] . "\" class=\"blue-text\">[Unban]</a>";
+		$append="<a href=\"members.php?update=0&user=" . $user['username'] . "\" class=\"blue-text\">[Unban]</a>";
 	}
 	else if($user['usergroup']==2){
-		$append=' class="green-text"';
-		$append2="<a href=\"members.php?update=0&user=" . $user['username'] . "\" class=\"blue-text\">[Demote]</a>";
+		$append="<a href=\"members.php?update=0&user=" . $user['username'] . "\" class=\"blue-text\">[Demote]</a>";
 	}
 	echo "
 							<tr>
-								<td><strong><a href=\"browse.php?author=" . $user['username'] . "\"" . $append . ">" . $user['username'] . "</a></strong></td>
+								<td><strong>" . memberlink($user['username'], $user['usergroup'], false) . "</strong></td>
 								<td>" . $user['uploads'] . "</td>
 								<td>" . $user['date'] . "</td>
 								<td>" . $user['ip'] . "</td>
-								<td>" . $append2 . "</td>
+								<td>" . $append . "</td>
 							</tr>";
 	
 }
