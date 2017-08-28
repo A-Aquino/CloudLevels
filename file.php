@@ -250,7 +250,7 @@ catch(PDOException $ex){
 		<br>
 		<div class="container">
 			<div class="row card hoverable">
-				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%;"><?php if($file_get['featured']==1){ echo '<i class="fa fa-star" aria-hidden="true"></i> '; } echo $file_get['name']; ?></span>
+				<span class="col s12 card-title <?php echo $theme ?> white-text center" style="font-size: 200%; word-wrap: break-word;"><?php if($file_get['featured']==1){ echo '<i class="fa fa-star" aria-hidden="true"></i> '; } echo $file_get['name']; ?></span>
 				<div class="row"></div>
 				<div class="row">
 					<div class="col s5 offset-s1 center-align">
@@ -264,7 +264,7 @@ catch(PDOException $ex){
 						<p>By <?php echo memberlink($file_author['username'], $file_author['usergroup'], false); if($user_type==2){ echo ' <span class="green-text">[' . $file_get['ip'] . ']</span>'; } ?></p>
 						<p><?php echo $file_get['date'] ?></p>
 						<p><i class="tiny fa fa-download" aria-hidden="true"></i> <?php echo $file_get['downloads'] ?> <i class="tiny fa fa-thumbs-up" aria-hidden="true"></i> <?php echo $file_get['likes'] ?></p>
-						<p style="word-break: break-all;"><?php echo $file_get['description'] ?></p>
+						<p style="word-wrap: break-word;"><?php echo $file_get['description'] ?></p>
 						<p><?php 
 foreach($result as $tag){
 	echo '<a href="browse.php?tags[]=' . $tag['tag'] . '" class="chip">' . $tag['tag'] . '</a>';
@@ -288,23 +288,7 @@ foreach($result as $tag){
 	foreach($comments as $comment){
 		$append='';
 		if($user_type==2) $append=' <span class="green-text">[' . $comment[4] . ']</span> <a href="file.php?id=' . $file_get['id'] . '&deletecomment=' . $comment[0] . '" class="red-text">[Delete]</a>';
-		echo "
-				<div class=\"row\">
-					<div class=\"card hoverable col s3 m2 offset-s1 offset-m1 center\">
-						<div class=\"card-content\">
-							<p><i class=\"medium fa fa-user\" aria-hidden=\"true\"></i> 
-							<p>" . memberlink($comment['username'], $comment['usergroup']) . "</p>
-						</div>
-					</div>
-					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
-						<div class=\"card-content\">
-							<p style=\"word-break: break-all;\">" . $comment['comment'] . "</p>
-							<br>
-							<p>" . $comment[3] . $append . "</p>
-						</div>
-					</div>
-				</div>
-";
+		commentbox($comment, $append);
 	}
 //Pages
 pagination($num_rows, 10, $theme);

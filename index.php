@@ -203,23 +203,7 @@ if(!empty($result3)){
 	foreach($comments as $comment){
 		$append='';
 		if($user_type==2) $append=' <span class="green-text">[' . $comment[4] . ']</span> <a href="index.php?deletecomment=' . $comment[0] . '" class="red-text">[Delete]</a>';
-		echo "
-				<div class=\"row\">
-					<div class=\"card hoverable col s3 m2 offset-s1 offset-m1 center\">
-						<div class=\"card-content\">
-							<p><i class=\"medium fa fa-user\" aria-hidden=\"true\"></i> 
-							<p>" . memberlink($comment['username'], $comment['usergroup']) . "</p>
-						</div>
-					</div>
-					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
-						<div class=\"card-content\">
-							<p style=\"word-break: break-all;\">" . $comment['comment'] . "</p>
-							<br>
-							<p>" . $comment[3] . $append . "</p>
-						</div>
-					</div>
-				</div>
-";
+		commentbox($comment, $append);
 	}
 //Pages
 pagination($num_rows, 10, $theme);

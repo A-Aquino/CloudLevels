@@ -66,10 +66,10 @@ function memberlink($username, $group, $to_append = true){
 
 //File preview box
 function filebox($file){
-		$is_featured='';
-		if($file['featured']==1)
-			$is_featured="<i class=\"tiny fa fa-star\" aria-hidden=\"true\"></i> ";
-		echo "
+	$is_featured='';
+	if($file['featured']==1)
+		$is_featured="<i class=\"tiny fa fa-star\" aria-hidden=\"true\"></i> ";
+	echo "
 					<div class=\"col s12 m6 l3\">
 						<div class=\"card hoverable\">
 							<a href=\"file.php?id=" . $file[0] . "\" class=\"card-content center black-text\">
@@ -81,6 +81,27 @@ function filebox($file){
 							</a>
 						</div>
 					</div>
+";
+}
+
+//Comment box
+function commentbox($comment, $append){
+	echo "
+				<div class=\"row\">
+					<div class=\"card hoverable col s3 m2 offset-s1 offset-m1 center\">
+						<div class=\"card-content\">
+							<p><i class=\"medium fa fa-user\" aria-hidden=\"true\"></i> 
+							<p>" . memberlink($comment['username'], $comment['usergroup']) . "</p>
+						</div>
+					</div>
+					<div class=\"card hoverable col s6 m7 offset-s1 offset-m1\">
+						<div class=\"card-content\">
+							<p style=\"word-wrap: break-word;\">" . $comment['comment'] . "</p>
+							<br>
+							<p>" . $comment[3] . $append . "</p>
+						</div>
+					</div>
+				</div>
 ";
 }
 
