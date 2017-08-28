@@ -59,28 +59,52 @@ try{
 	}
 	
 	//Get Member data
-	$append='id';
-	$append2='';
+	$order='id';
+	$where='WHERE ';
+	$args=array();
 	
-	if(!empty($_GET["sort"])&&$_GET["sort"]=='uploaded'){
-		$append='uploads';
-	}
+	//Username
 	if(!empty($_GET["username"])){
-		$append2='WHERE username = ?';
+		$where.=' AND username = ?';
+		array_push($args, $_GET["username"]);
 	}
+	
+	//Usergroup
+	if(!empty($_GET["group"])){
+		if($_GET["group"]=="member"||$_GET["group"]=="staff"||$_GET["group"]=="banned")
+			$where.=' AND usergroup = ?';
+		if($_GET["group"]=="member") array_push($args, 0);
+		else if($_GET["group"]=="staff") array_push($args, 2);
+		else if($_GET["group"]=="banned") array_push($args, 1);
+	}
+	
+	//IP address
+	if(!empty($_GET["ip"])){
+		$where.=' AND ip LIKE ?';
+		array_push($args, str_replace("*", "%", $_GET["ip"]));
+	}
+	
+	//Order by
+	if(!empty($_GET["sort"])&&$_GET["sort"]=='uploaded'){
+		$order='uploads';
+	}
+	
+	//No query case
+	if($where=='WHERE '){
+		$where='';
+	}
+	
+	//Remove first AND from where string
+	$where=preg_replace('/AND/', '', $where, 1);
 	
 	$stmt = $db->prepare("
 		SELECT SQL_CALC_FOUND_ROWS *
 		FROM cl_user
-		" . $append2 . "
-		ORDER BY " . $append .  " DESC
+		" . $where . "
+		ORDER BY " . $order .  " DESC
 		" . page_sql_calc(25));
-	if(!empty($_GET["username"])){
-		$stmt->execute(array($_GET["username"]));
-	}
-	else{
-		$stmt->execute();
-	}
+	$stmt->execute($args);
+
 	$result = $stmt->fetchAll();
 	
 	$num_rows = $db->query('SELECT FOUND_ROWS()')->fetchColumn();
@@ -102,6 +126,20 @@ catch(PDOException $ex){
 						<i class="fa fa-user prefix" aria-hidden="true"></i>
 						<input id="username" name="username" type="text" value="<?php if(!empty($_GET["username"])){echo $_GET["username"];} ?>" class="validate">
 						<label for="username">Username</label>
+					</div>
+					<div class="input-field col s6">
+						<select id="group" name="group" required>
+							<option value="all">All Users</option>
+							<option value="member"<?php if(!empty($_GET["group"])&&$_GET["group"]=='member') echo ' selected'; ?>>Member</option>
+							<option value="staff"<?php if(!empty($_GET["group"])&&$_GET["group"]=='staff') echo ' selected'; ?>>Staff</option>
+							<option value="banned"<?php if(!empty($_GET["group"])&&$_GET["group"]=='banned') echo ' selected'; ?>>Banned</option>
+						</select>
+						<label for="group">User Group</label>
+					</div>
+					<div class="input-field col s6">
+						<i class="fa fa-map-marker prefix" aria-hidden="true"></i>
+						<input id="ip" name="ip" type="text" value="<?php if(!empty($_GET["ip"])){echo $_GET["ip"];} ?>" class="validate">
+						<label for="ip">IP Address</label>
 					</div>
 					<div class="input-field col s6">
 						<select id="sort" name="sort" required>
