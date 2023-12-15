@@ -82,11 +82,15 @@ if(!empty($_POST["username"])){
 				}
 				else{
 					
+					$salt=substr(base64_encode(openssl_random_pseudo_bytes(17)),0,22);
+					$salt=str_replace("+",".",$salt);
+					$param='$'.implode('$',array("2y",str_pad(11,2,"0",STR_PAD_LEFT),$salt));
+					
 					date_default_timezone_set('America/New_York');
 					$stmt = $db->prepare("
 						INSERT INTO cl_user(username, password, date, ip)
 						VALUES(?,?,?,?)");
-					$stmt->execute(array(htmlspecialchars($_POST["username"]), crypt($_POST["password"]), date("F j, Y"), $_SERVER['REMOTE_ADDR']));
+					$stmt->execute(array(htmlspecialchars($_POST["username"]), crypt($_POST["password"],$param), date("F j, Y"), $_SERVER['REMOTE_ADDR']));
 					successbox('Your account has been created. Please log in.');
 					
 				}

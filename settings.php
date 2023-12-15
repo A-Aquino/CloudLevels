@@ -55,12 +55,16 @@ if(!empty($_POST["password_old"])){
 			//Compare password hash
 			if(crypt($_POST["password_old"], $passhash)==$passhash){
 				
+				$salt=substr(base64_encode(openssl_random_pseudo_bytes(17)),0,22);
+				$salt=str_replace("+",".",$salt);
+				$param='$'.implode('$',array("2y",str_pad(11,2,"0",STR_PAD_LEFT),$salt));
+				
 				//SQL Stuff
 				$stmt = $db->prepare("
 					UPDATE cl_user
 					SET password = ?
 					WHERE username = ?");
-				$stmt->execute(array(crypt($_POST["password_new"]), $user_name));
+				$stmt->execute(array(crypt($_POST["password_new"],$param), $user_name));
 				
 				successbox('Your password has been changed.');
 			}
